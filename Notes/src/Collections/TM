@@ -1,0 +1,35 @@
+
+
+| Operation                 | `ArrayList`    | `LinkedList`            | `Vector`       |
+| ------------------------- | -------------- | ----------------------- | -------------- |
+| Access (get)              | O(1)           | O(n)                    | O(1)           |
+| Search                    | O(n)           | O(n)                    | O(n)           |
+| Insertion at end          | Amortized O(1) | O(1)                    | Amortized O(1) |
+| Insertion at middle/start | O(n)           | O(1) (if at head)       | O(n)           |
+| Deletion                  | O(n)           | O(1) (if node is known) | O(n)           |
+
+
+
+| Operation | `HashSet` | `LinkedHashSet` | `TreeSet`                      |
+| --------- | --------- | --------------- | ------------------------------ |
+| Add       | O(1)      | O(1)            | O(log n)                       |
+| Remove    | O(1)      | O(1)            | O(log n)                       |
+| Contains  | O(1)      | O(1)            | O(log n)                       |
+| Order     | No        | Insertion order | Sorted (natural or comparator) |
+
+
+
+| Operation     | `PriorityQueue` | `ArrayDeque`   | `LinkedList` |
+| ------------- | --------------- | -------------- | ------------ |
+| Add / Offer   | O(log n)        | Amortized O(1) | O(1)         |
+| Remove / Poll | O(log n)        | O(1)           | O(1)         |
+| Peek          | O(1)            | O(1)           | O(1)         |
+
+
+| Operation       | `HashMap` | `LinkedHashMap` | `TreeMap` | `Hashtable` |
+| --------------- | --------- | --------------- | --------- | ----------- |
+| Get / Put       | O(1)      | O(1)            | O(log n)  | O(1)        |
+| Remove          | O(1)      | O(1)            | O(log n)  | O(1)        |
+| Iteration Order | No        | Insertion order | Sorted    | No          |
+| Thread-Safe     | No        | No              | No        | Yes         |
+

@@ -1,0 +1,320 @@
+/*
+1. Java is object oriented programming language.
+
+2. Object is instance of Class.
+    A. It is real world entity
+    B. Object has properties and functions.
+
+3. Class is a template for object.
+4. Class is a blueprint for object.
+5. Class is a collection of properties
+
+Example:
+
+Student engineer = new Student();
+
+/*******************
+ * OOPS fundamentals
+ *
+ * 1. Data Abstraction
+ *
+ * It hides the complexity and shows essential functionality to the user.
+ * It is achieved through interface and abstract class.
+ * Increases the security and confidentiality.
+ * Example: User sends a text message to the user, but he is unknown to undelaying implementation.
+ *
+ * Interface Imessage{
+ *
+ *      Send_Text(){
+ *
+ *      }
+ *
+ *      Send_Email(){
+ *
+ *       }
+ *
+ *      Send_WhatsApp(){
+ *
+ *      }
+ * }
+ *
+ * 2. Data Encapsulation
+ *
+ *  Encapsulation is the process of binding data and methods together into a single unit.
+ *  It is also known as data hiding
+ *  It is achieved through the use of access modifiers.
+ *
+ *  Access modifiers are used to control the access of data and methods.
+ *
+ *  There are 4 access modifiers in java
+ *
+ *  1. public
+ *  2. private
+ *  3. protected
+ *  4. default
+ *
+ *  we can also use access modifiers to restrict the access of data and methods
+ *  We can write loosely coupled code and have better access and security
+ *  Using a class and getter and setter methods we wrap data in single unit
+ *
+ *
+ * 3. Inheritance  --> extends
+ *
+ * Capability of a class to inherit the properties of another class
+ * code reusability
+ * single inheritance
+ * multilevel inheritance
+ * hierarchical inheritance
+ * Multiple inheritance is not possible in java we achieve that behoove from interface
+ * Diamond problem occurs if we try to inherit from multiple classes because they can have same methods it can
+ * cause confusion which one to use.
+
+
+ *
+ * 4. Polymorphism
+
+ * Poly means to many forms
+    A same method, behave differently in different situations
+
+    Types of polymorphism
+
+    compile time / static polymorphism / method Overloading
+    run time / dynamic polymorphism / Method Overriding
+
+
+    Compile time polymorphism
+
+    method overloading : same method name but different parameters
+    return type does not matter
+
+
+    run time polymorphism
+
+    method overriding : same method name and same parameters
+    using inheritance
+
+ 5. Object relationship
+
+ IS-A-Relationship
+
+ Dog is a Animal
+
+ Parent child relationship
+
+ Has-A-Relationship
+
+ One Class has a object of another Class
+ It can be one-to-one one to many many to many
+
+Association in between two objects
+
+Aggregation: both object can serve individually.
+Composition : Ending one object will end another object
+
+
+
+JDK
+
+Java is platform independent language
+
+WORA --> Write once, Run anywhere
+
+JDK --> JRE --> JVM
+
+Java Program --> Complier --> Bytecode --> JVM --> Machine Code -->CPU --> Output
+
+JIT --> just in time complier
+
+JRE ==> JVM + class library
+
+JDK ==> JRE(JVM + class library) + java language + java complier + debugger
+
+ *
+
+
+ Java Program
+
+    There should be only one public class in java same as file name
+    Main method is public and static so JVM can directly call it with class name
+    Main method is the entry point of the program. JVM will call main method
+
+Java variable rules:
+
+    Java is case sensitive
+    Java is strongly typed
+    Java is statically typed
+    Java variables can not start with number
+    Java variables follow camelcase
+
+    Data Types
+
+    Primitive data type
+
+    Char
+
+    Char --> 2 Byte  range 0 to 65535
+
+    Signed compiles of 2
+    byte --> 1 Byte  range -128 to 127 default 0
+    short --> 2 Byte  range -32768 to 32767
+    int --> 4 Byte  range -2147483648 to 2147483647
+    long --> 8 Byte  range -9223372036854775808 to 9223372036854775807
+    float --> 4 Byte  range 1.4E-45 to 3.4E+38
+    double --> 8 Byte  range 4.9E-324 to 1.8E+308
+    boolean --> 1 Byte  range true or false
+
+    Use BIginter for presision
+
+
+    Reference data types
+
+    Class
+
+    There no pass by reference in java we use objects to pass reference
+
+    String
+
+    String are stored inside string pool where sme string holds same reference to strings
+    String are immutable in java
+    To create new string in heap use new keyword
+
+    Interface
+
+    while implementing interface we have override the method and provided body
+    we can hold reference of concrete object in parent interface
+
+    Class Car implements vehicle{
+    }
+
+    vehicle car = new Car();
+
+    Arrays
+
+    int arr[] = new int[5];
+
+    Reference data types
+
+    Integer
+
+
+
+    Access Specifiers
+
+    Public : can be accessed in any class and any package (Global)
+    Private : can be accessed in same class
+    protected : can be access in same package & it can be accessed by child classes from different package
+    default : can be accessed in classes from same package
+
+
+    Method name:
+
+    small_Letter Camale case
+
+
+    #### Method types
+
+    Static method: IT is associated with class
+
+    Class_name.method
+
+    static method can not call instance variable
+    static method can not be overridden
+
+    method can be static when it not changing any instance variable
+
+    Final:
+
+    It is declared when you don't want to change the implementation
+    It can not be overridden
+
+    Abstract
+
+    Abstract method is only resides in abstract class
+    IT does not have any implementation
+    Child class has to implement the abstract method
+
+
+    Constructors
+
+    Constructor should be same as class name
+    It is used for object initialization
+    It does not have any return type
+    It can not be static / final / abstract
+
+    Types:
+
+        Default
+        No args
+        Parameterized
+        constructor overloaded
+        private constructor
+        constructor changing
+                this
+                super
+
+    Memory Management
+
+    Stack:
+        Stack stores temporary variables & methods get a block in stack
+        Each thread has separate stack
+
+    Heap:
+
+        Heap is a shared memery
+
+
+    Garbage collection
+
+        Young generation Old Generation Meta space
+
+        Object created are stored in YG and gradually promoted in OG
+
+        YG
+
+        Eden S1 S0
+
+
+    Class types
+
+    Concrete class : class for which we can create instance
+    abstract class : no implementation
+    super class and sub class: All the classes has Object super class by default
+    Nested classes:
+        Inner class
+        Anonymous class : class without name
+        Member Inner class
+        Local Inner class
+        Static nested class
+
+    POJO : Plain old java objects
+    Contains variables getters and setters
+    class should be public
+    public default constructor
+    No annotations
+    It should not extend or implement any class or interface
+
+
+    Enums:
+
+    Collection of constants
+    all the members in enum are static and constants
+    It can not extend any class as it by default extends java.lang.enum class
+    it can implement interface
+    It can not be initialized or extended by another class
+
+    Singleton class
+
+
+    Java Collections and framework
+
+    Iterable the parent interface
+
+    Collection : is a part of collection framework. & It's interface which contains various methods which is
+                   is implemented by various classes like arraylist, stack, linkedlist
+
+    collections : It is utility class and provides static methods which are used to operate like sort swap
+                    search reverse
+ *
+ */
+
+
