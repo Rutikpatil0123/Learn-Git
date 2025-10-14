@@ -13,7 +13,7 @@ public class LinkedListDemo {
         list.add(3);
         list.add(4);
 
-        list.
+        //list.
 
         for(Integer val: list){
             System.out.print(val + "-> ");
