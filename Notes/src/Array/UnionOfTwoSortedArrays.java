@@ -1,51 +1,63 @@
 package Array;
 
-import java.util.HashMap;
+// Given two sorted arrays nums1 and nums2, return an array that contains the union of these two arrays. The elements in the union must be in ascending order.
 
-import Math.Pair;
+// The union of two arrays is an array where all values are distinct and are present in either the first array, the second array, or both.
 
-/*Given an array of integers nums and an integer target. Return the indices(0 - indexed) of two elements in nums such that they add up to target.
+public class UnionOfTwoSortedArrays {
 
+    public static void main(String[] args) {
+        System.out.println("Hello");
 
-Each input will have exactly one solution, and the same element cannot be used twice. Return the answer in increasing order.*/
+        int []firstArray = {1, 2, 3, 4, 5};
+        int []secondArray = {1, 2, 7};
 
-public class TwoSum {
-
-    public static void main(String args[]){
-        System.out.println("Hello world!");
-
-        Integer []firstArray = {1, 6, 2, 10, 3};
-        Pair<Integer,Integer> p = solution(firstArray, 7);
-        System.out.println(p.getFirstValue() + " " + p.getSecondValue());
+        int []answerArray = solution(firstArray, secondArray);
+        ArrayTUF.printArray(answerArray);
     }
 
-    public static Pair<Integer,Integer> solution(Integer []arr, Integer target){
+    public static int[] solution(int[] firstArray, int []secondArray){
 
-        HashMap <Integer, Integer> map = new HashMap<>();
+        int firstIndex = 0;
+        int secondIndex = 0;
+        int thirdIndex = 0;
 
-        Pair<Integer,Integer> pair = new Pair<Integer,Integer>(0, 0);
-       
-        for(Integer i = 0; i < arr.length; i++){
-            map.put(arr[i], i);
-        }
+        int []answerArray = new int[firstArray.length+secondArray.length];
 
-        for(Integer i = 0; i < arr.length; i++){
-            if(map.containsKey(target-arr[i])){
-                if(target-arr[i] < arr[i]){
-                    pair.setFirstValue()
-                    pair.setSecondValue(arr[i]);
-                }else{
-                    pair.setSecondValue(target-arr[i]);
-                    pair.setFirstValue(arr[i]);
-                }
+        while (firstIndex < firstArray.length && secondIndex < secondArray.length) {
+            if(firstArray[firstIndex] == secondArray[secondIndex]){
+                answerArray[thirdIndex] = firstArray[firstIndex];
+                firstIndex++;
+                secondIndex++;
+
+            }else if(firstArray[firstIndex] < secondArray[secondIndex]){
+
+                answerArray[thirdIndex] = firstArray[firstIndex];
+                firstIndex++;
+               
+            }else{
+                answerArray[thirdIndex] = secondArray[secondIndex];
+                secondIndex++;
             }
-
+            thirdIndex++;
         }
 
-        return pair;
+         while (firstIndex < firstArray.length){
 
+            answerArray[thirdIndex] = firstArray[firstIndex];
+            firstIndex++;
+            thirdIndex++;
+         }
 
+         
+         while (secondIndex < secondArray.length){
 
+            answerArray[thirdIndex] = secondArray[secondIndex];
+            secondIndex++;
+            thirdIndex++;
+         }
+
+         return answerArray;
     }
 
    
