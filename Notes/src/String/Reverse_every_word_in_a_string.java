@@ -1,10 +1,16 @@
 package String;
 
+import java.util.Stack;
+
 public class Reverse_every_word_in_a_string {
 
     public static void main(String[] args) {
         System.out.println("Hello");
-        solution("welcome to the jungle");
+        String a = solution("welcome to the jungle");
+        System.out.println(a);
+        String temp = optimalSolution("welcome to the jungle");
+        temp += " ";
+        helper(temp);
     }
 
     /*
@@ -39,25 +45,54 @@ public class Reverse_every_word_in_a_string {
 
      */
 
-    public static StringBuilder solution(String input){
-        StringBuilder sb = new StringBuilder("");
+    public static String solution(String input){
         String temp = "";
-        System.out.println(input.length());
+        input += " ";
+        Stack<String> st = new Stack<>();
         for(int i = 0; i < input.length(); i++){
             if(input.charAt(i) != ' '){
                 temp += (input.charAt(i));
             }else{
-                temp += " ";
-                System.out.println(temp);
-                sb;
+                st.push(temp);
                 temp = "";
 
             }
         }
-        for(int i = 0; i)
-        System.out.println(sb);
-        return sb;
 
+        st.push(temp);
+        while (!st.isEmpty()) {
+            temp += st.peek();
+            temp += " ";
+            st.pop();
+        }    
+        temp = temp.strip();
+        return temp;
+
+    }
+
+    public static String optimalSolution(String input){
+        StringBuilder sb = new StringBuilder();
+        for(int i = input.length()-1; i >= 0; i--){
+            sb.append(input.charAt(i));
+        
+        }
+        return sb.toString();
+    }
+
+    public static void helper(String input){
+        String ans = "";
+        String temp = "";
+        for(int i = 0; i < input.length(); i++){
+            char a = input.charAt(i);
+            if(a != ' '){
+                temp += a;
+            }else{
+                ans += optimalSolution(temp);
+                ans += " ";
+                temp = "";
+            }
+        }
+        System.out.println(ans);
     }
     
 }
