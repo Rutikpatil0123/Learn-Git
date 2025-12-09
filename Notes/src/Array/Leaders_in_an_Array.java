@@ -1,0 +1,56 @@
+package Array;
+import java.util.ArrayList;
+import java.util.List;
+public class Leaders_in_an_Array {
+ 
+    public static void main(String[] args) {
+        solutionOne(new int[] {2, 4, 5, -1, -3, -4});
+        System.out.println();
+        solutionOne(new int[] {-3, 4, 5, 1, -4, -5});
+        //rearrangeBySign(new int[] {2, 4, 5, -1, -3, -4});
+    }
+
+
+    public static List<Integer> solutionOne(int[] nums){
+        List<Integer> list = new ArrayList<>();
+        int currentLeader = Integer.MIN_VALUE;
+        int arraySize = nums.length;
+        for(int i = arraySize-1; i >= 0; i--){
+            if(currentLeader < nums[i]){
+                currentLeader = nums[i];
+                list.add(0, currentLeader);
+            }
+        }
+
+        for(Integer i : list){
+            System.out.print(i + " > ");
+        }
+
+        return list;
+    }
+
+    /*
+    Given an integer array nums, return a list of all the leaders in the array.
+
+
+A leader in an array is an element whose value is strictly greater than all elements to its right in the given array. The rightmost element is always a leader. The elements in the leader array must appear in the order they appear in the nums array.
+Examples:
+
+Input: nums = [1, 2, 5, 3, 1, 2]
+
+Output: [5, 3, 2]
+
+Explanation:
+
+2 is the rightmost element, 3 is the largest element in the index range [3, 5], 5 is the largest element in the index range [2, 5]
+
+Input: nums = [-3, 4, 5, 1, -4, -5]
+
+Output: [5, 1, -4, -5]
+
+Explanation:
+
+-5 is the rightmost element, -4 is the largest element in the index range [4, 5], 1 is the largest element in the index range [3, 5] and 5 is the largest element in the range [2, 5]
+    */
+
+}
